@@ -13,10 +13,10 @@ class MovieDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
 
-class AllMoviesListView(generics.ListApiView):
+class AllMoviesListView(generics.ListAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
-    
+
 class MovieUpdateView(generics.RetrieveUpdateAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
