@@ -5,10 +5,17 @@ from .models import Movie
 from .serializers import MovieSerializer
 from rest_framework.response import Response
 
-class MovieListCreateView(generics.ListCreateAPIView):
+class MovieListCreateView(generics.ListCreateAPIView): 
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
 
+class MovieDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+
+class AllMoviesListView(generics.ListApiView):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
 class MovieUpdateView(generics.RetrieveUpdateAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
@@ -22,3 +29,4 @@ class MovieDeleteView(generics.DestroyAPIView):
         instance = self.get_object()
         instance.delete()
         return Response(print("delete Movie"))
+
